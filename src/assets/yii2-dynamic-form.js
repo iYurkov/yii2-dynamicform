@@ -66,6 +66,9 @@
         });
 
         $template.find('input, textarea, select').each(function() {
+            if ($(this).data('safe-value')) {
+                return $(this);
+            }
             if ($(this).is(':checkbox') || $(this).is(':radio')) {
                 var type         = ($(this).is(':checkbox')) ? 'checkbox' : 'radio';
                 var inputName    = $(this).attr('name');
